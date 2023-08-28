@@ -59,18 +59,51 @@
   })
   const copyButton = document.getElementById('copyButton')
   copyButton.addEventListener('click', () => {
-    fetch('https://raw.githubusercontent.com/lizhenmiao/ClashX-Subscriptions/main/config.txt').then(res =>{
+    fetch('https://raw.githubusercontent.com/lizhenmiao/ClashX-Subscriptions/main/config.txt').then(res => {
       return res.text()
     }).then(text => {
-      navigator.clipboard.writeText(text).then(() => {
+      copyTextToClipboard(text).then(() => {
         toast('复制成功')
       }).catch(err => {
-        toast(`复制失败, ${err}`)
+        openConfig()
       })
     }).catch(err => {
-      toast(`请求链接失败, ${err}`)
+      openConfig('请求链接失败')
     })
   })
+
+  // 打开配置文件, 进行复制
+  function openConfig(prefix = '复制失败') {
+    toast(`${prefix}, 将打开配置文件, 请手动复制, ${err}`)
+    setTimeout(() => {
+      window.open('https://raw.githubusercontent.com/lizhenmiao/ClashX-Subscriptions/main/config.txt')
+    }, 3500)
+  }
+
+  // 复制功能
+  function copyTextToClipboard(text) {
+    return new Promise((resolve, reject) => {
+      const input = document.createElement('input')
+      input.style.position = 'fixed'
+      input.style.opacity = 0
+      input.value = text
+      document.body.appendChild(input)
+      input.select()
+
+      try {
+        const successful = document.execCommand('copy')
+        if (successful) {
+          resolve()
+        } else {
+          reject()
+        }
+      } catch (error) {
+        reject(error)
+      }
+
+      document.body.removeChild(input)
+    })
+  }
   // 手写toast
   function toast(text, time = 3000) {
     const toast = document.createElement('div')
