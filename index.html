@@ -61,15 +61,7 @@
   copyButton.addEventListener('click', () => {
     fetch('https://raw.githubusercontent.com/lizhenmiao/ClashX-Subscriptions/main/config.txt').then(res => res
       .text()).then(text => {
-        // 复制文本, 需要兼容 ios 手机
-        const input = document.createElement('input')
-        input.value = text
-        document.body.appendChild(input)
-        input.select()
-        input.setSelectionRange(0, 99999)
-        document.execCommand('copy')
-        document.body.removeChild(input)
-        toast('复制成功')
+        alert(text)
     })
   })
   // 手写toast
