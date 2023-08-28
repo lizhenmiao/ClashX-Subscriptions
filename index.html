@@ -5,13 +5,97 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>导入clashx配置</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+        sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+      background-color: #f5f7fa;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #409eff;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #66b1ff;
+    }
+
+    a {
+      color: #409eff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #66b1ff;
+    }
+  </style>
 </head>
 
 <body>
-  <p>
-    <a
-      href="clash://install-config?url=https://raw.githubusercontent.com/lizhenmiao/ClashX-Subscriptions/main/config.yaml&name=Azure-Southeast-Asia">一键导入到clashx中</a>
-  </p>
+  <button id="installConfig">一键导入到ClashX中</button>
+  <button id="copyButton">一键复制链接配置信息</button>
 </body>
+<script>
+  const installConfig = document.getElementById('installConfig')
+  installConfig.addEventListener('click', () => {
+    window.location.href =
+      `clash://install-config?url=https://raw.githubusercontent.com/lizhenmiao/ClashX-Subscriptions/main/config.yaml&name=Azure-Southeast-Asia`
+  })
+  const copyButton = document.getElementById('copyButton')
+  copyButton.addEventListener('click', () => {
+    fetch('https://raw.githubusercontent.com/lizhenmiao/ClashX-Subscriptions/main/config.txt').then(res => res
+      .text()).then(text => {
+      navigator.clipboard.writeText(text).then(() => {
+        toast('复制成功')
+      }, () => {
+        toast('复制失败')
+      })
+    })
+  })
+  // 手写toast
+  function toast(text, time = 3000) {
+    const toast = document.createElement('div')
+    // 在底部居中
+    toast.style = `
+      position: fixed;
+      left: 50%;
+      bottom: 30px;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      border-radius: 5px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      font-size: 14px;
+      transition: all 0s;
+      opacity: 1;
+    `
+    toast.innerText = text
+    document.body.appendChild(toast)
+    // 慢慢渐隐
+    setTimeout(() => {
+      toast.style.transition = 'all .5s'
+      toast.style.opacity = 0
+      setTimeout(() => {
+        document.body.removeChild(toast)
+      }, 500)
+    }, time)
+  }
+</script>
 
 </html>
