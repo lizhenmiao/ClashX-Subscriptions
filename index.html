@@ -59,9 +59,12 @@
   })
   const copyButton = document.getElementById('copyButton')
   copyButton.addEventListener('click', () => {
-    fetch('https://raw.githubusercontent.com/lizhenmiao/ClashX-Subscriptions/main/config.txt').then(res => res
-      .text()).then(text => {
+    fetch('https://raw.githubusercontent.com/lizhenmiao/ClashX-Subscriptions/main/config.txt').then(res =>{
+      return res.text()
+    }).then(text => {
         alert(text)
+    }).catch(err => {
+      alert(err)
     })
   })
   // 手写toast
