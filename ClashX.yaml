@@ -5,8 +5,8 @@ mode: Rule
 log-level: info
 external-controller: :9090
 proxies:
-  - {name: 🇯🇵 日本1, server: 20.222.38.173, port: 59783, type: vmess, uuid: f2b8240f-e608-4161-cedf-44625d8e1554, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
-  - {name: 🇯🇵 日本4, server: 20.222.38.173, port: 21662, type: vmess, uuid: bd0f37cc-0e6b-4062-8037-be437e19fb4c, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-opts: {path: /bd0f37cc-0e6b-4062-8037-be437e19fb4c}, udp: true}
+  - {name: 🇭🇰 香港1, server: 20.187.75.34, port: 33856, type: vmess, uuid: 5ac730ce-8513-4f6f-aad5-9a0445477142, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
+  - {name: 🇭🇰 香港3, server: 20.187.75.34, port: 56777, type: vmess, uuid: b7bb8c41-c8a1-4c38-a992-ef71fcf48eab, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-opts: {path: /b7bb8c41-c8a1-4c38-a992-ef71fcf48eab}, udp: true}
   - {name: 🇰🇷 韩国1, server: 20.214.104.226, port: 24218, type: vmess, uuid: bf85b3d3-af25-425d-bb8e-598c319af098, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
   - {name: 🇰🇷 韩国4, server: 20.214.104.226, port: 40150, type: vmess, uuid: b5181e2f-0b15-4046-dcea-e0ce0b97f288, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-opts: {path: /b5181e2f-0b15-4046-dcea-e0ce0b97f288}, udp: true}
   - {name: 🇸🇬 新加坡1, server: 20.212.83.147, port: 57999, type: vmess, uuid: c0ce7738-75f6-416f-af6a-b1993b2eb8a8, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
@@ -17,8 +17,8 @@ proxy-groups:
     proxies:
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 🇯🇵 日本1
-      - 🇯🇵 日本4
+      - 🇭🇰 香港1
+      - 🇭🇰 香港3
       - 🇰🇷 韩国1
       - 🇰🇷 韩国4
       - 🇸🇬 新加坡1
@@ -28,8 +28,8 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-      - 🇯🇵 日本1
-      - 🇯🇵 日本4
+      - 🇭🇰 香港1
+      - 🇭🇰 香港3
       - 🇰🇷 韩国1
       - 🇰🇷 韩国4
       - 🇸🇬 新加坡1
@@ -40,8 +40,8 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 🇯🇵 日本1
-      - 🇯🇵 日本4
+      - 🇭🇰 香港1
+      - 🇭🇰 香港3
       - 🇰🇷 韩国1
       - 🇰🇷 韩国4
       - 🇸🇬 新加坡1
@@ -64,8 +64,8 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 🇯🇵 日本1
-      - 🇯🇵 日本4
+      - 🇭🇰 香港1
+      - 🇭🇰 香港3
       - 🇰🇷 韩国1
       - 🇰🇷 韩国4
       - 🇸🇬 新加坡1
@@ -74,14 +74,16 @@ proxy-groups:
     type: select
     proxies:
       - 🎯 全球直连
+      - 🇭🇰 香港1
+      - 🇭🇰 香港3
       - 🔰 节点选择
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
-      - 🇯🇵 日本1
-      - 🇯🇵 日本4
+      - 🇭🇰 香港1
+      - 🇭🇰 香港3
       - 🇰🇷 韩国1
       - 🇰🇷 韩国4
       - 🇸🇬 新加坡1
@@ -91,8 +93,8 @@ proxy-groups:
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
-      - 🇯🇵 日本1
-      - 🇯🇵 日本4
+      - 🇭🇰 香港1
+      - 🇭🇰 香港3
       - 🇰🇷 韩国1
       - 🇰🇷 韩国4
       - 🇸🇬 新加坡1
@@ -103,8 +105,8 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 🇯🇵 日本1
-      - 🇯🇵 日本4
+      - 🇭🇰 香港1
+      - 🇭🇰 香港3
       - 🇰🇷 韩国1
       - 🇰🇷 韩国4
       - 🇸🇬 新加坡1
@@ -124,8 +126,8 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 🇯🇵 日本1
-      - 🇯🇵 日本4
+      - 🇭🇰 香港1
+      - 🇭🇰 香港3
       - 🇰🇷 韩国1
       - 🇰🇷 韩国4
       - 🇸🇬 新加坡1
